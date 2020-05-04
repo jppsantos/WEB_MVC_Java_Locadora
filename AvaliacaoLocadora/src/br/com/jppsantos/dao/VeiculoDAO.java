@@ -67,12 +67,41 @@ public class VeiculoDAO {
 		return lista;
 	}
 	
+	public ArrayList<VeiculoBean> listarVeiculosDisponiveis() {
+		String sql = "SELECT * FROM veiculo WHERE disponibilidade='Disponível'";
+		
+		try {
+			st = conn.createStatement();
+			rs = st.executeQuery(sql);
+
+			while (rs.next()) {
+				String modelo = rs.getString("modelo");
+				String ano = rs.getString("ano");
+				String disp = rs.getString("disponibilidade");
+				Integer idVeiculo = rs.getInt("idveiculo");
+				
+				VeiculoBean veiculoBean = new VeiculoBean(modelo, ano, disp);
+				veiculoBean.setIdVeiculo(idVeiculo);
+			
+				System.out.println("\n\n\nmodelo" + rs.getString("modelo"));
+				lista.add(veiculoBean);
+			}
+			
+			st.close();
+			rs.close();
+			
+		} catch (Exception e) {
+			throw new RuntimeException("Erro na na listagem de veiculos " + e);
+		}
+		
+		return lista;
+	}
+	
 	public boolean alugarVeiculo(Integer id) {
-		String sql = "UPDATE veiculo SET disponilidade='Indisponivel' WHERE idcarro=?";
+		String sql = "UPDATE veiculo SET disponibilidade='Indisponivel' WHERE idveiculo=?";
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
-			
 			ps.executeUpdate();
 			ps.close();
 			return true;

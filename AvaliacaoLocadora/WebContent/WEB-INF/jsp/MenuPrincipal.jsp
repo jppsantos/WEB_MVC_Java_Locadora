@@ -9,13 +9,23 @@
 <title>Menu Principal</title>
 </head>
 <body>
-<div class="wrapper fadeInDown">
+	<div class="container">
+		<div class="card text-center">
+			<%@include file="/WEB-INF/jsp/MenuBar.jsp" %>
+			<div class="card-body">
+				<div class="row">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- <div class="wrapper fadeInDown">
   <div id="formContent">
-    <form action="CadastraVeiculo.jsp" method="get">
-    	<input type="hidden" name = "logica" value = "AlugarVeiculosLogica">
-      	<input type="submit" class="fadeIn fourth" value="Cadastrar">
+    <form action="ControllerServlet" method="get">
+    	<input type="hidden" name = "logica" value = "ListaEditavelVeiculosLogica">
+      	<input type="submit" class="fadeIn fourth" value="Alugar">
     </form>
   </div>
-</div>
+</div> -->
 </body>
 </html>

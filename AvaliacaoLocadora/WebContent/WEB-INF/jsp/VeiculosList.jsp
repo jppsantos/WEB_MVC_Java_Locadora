@@ -8,26 +8,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Lista de Veiculos</title>
 </head>
 <body>
 	<div class="container">
-		<table class = "table table-striped table-bordered"> 
-			<tr class = "thead-dark">
-				<th>Codigo</th>
-				<th>Modelo</th>
-				<th>Marca</th>
-				<th>Valor do aluguel</th>
-			</tr>
-			<c:forEach items="${veiculos}" var="item">
-				<tr>	
-					<td>${item.getIdVeiculo()}</td>
-					<td>${item.getModelo()}</td>
-					<td>${item.getAno()}</td>
-					<td>${item.getDisponibilidade()}</td>
-				</tr>
-			</c:forEach>
-		</table>
+		<div class="card text-center">
+			<%@include file="/WEB-INF/jsp/MenuBar.jsp" %>
+			<div class="card-body">
+				<div class="row">
+					<table class = "table table-striped table-bordered"> 
+						<tr class = "thead-dark">
+							<th>Codigo</th>
+							<th>Modelo</th>
+							<th>Marca</th>
+							<th>Valor do aluguel</th>
+						</tr>
+						<c:forEach items="${veiculos}" var="item">
+							<tr>	
+								<td>${item.getIdVeiculo()}</td>
+								<td>${item.getModelo()}</td>
+								<td>${item.getAno()}</td>
+								<td>${item.getDisponibilidade()}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+			</div>
+		
+		</div>
+		
 	</div>
 </body>
 </html>

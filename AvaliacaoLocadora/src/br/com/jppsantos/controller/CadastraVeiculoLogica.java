@@ -12,7 +12,8 @@ public class CadastraVeiculoLogica implements Logica {
 //		System.out.println("Executando a logica ...");
 		String modelo = request.getParameter("txtModelo");
 		String ano = request.getParameter("txtAno");
-		String disponibilidade = request.getParameter("txtDisponibilidade");
+//		String disponibilidade = request.getParameter("txtDisponibilidade");
+		String disponibilidade = "Disponível";
 
 		VeiculoBO veiculoBO = new VeiculoBO();
 		String proximaTela = veiculoBO.insereCarro(modelo, ano, disponibilidade);

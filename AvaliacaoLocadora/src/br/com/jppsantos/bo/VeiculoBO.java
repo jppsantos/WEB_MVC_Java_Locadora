@@ -21,6 +21,10 @@ public class VeiculoBO {
 		return veiculoDAO.listarVeiculos();
 	}
 	
+	public List<VeiculoBean> getDispVeiculos() {
+		return veiculoDAO.listarVeiculosDisponiveis();
+	}
+	
 	public String alugarVeiculo(Integer idveiculo) {
 		if (veiculoDAO.alugarVeiculo(idveiculo)) {
 			return "VeiculosList.jsp";
