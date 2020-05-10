@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.jppsantos.bo.VeiculoBO;
 
-public class AlugaVeiculoLogica implements Logica {
+public class ExcluirVeiculoLogica implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -13,12 +13,16 @@ public class AlugaVeiculoLogica implements Logica {
 		 Integer idVeiculo = Integer.parseInt(request.getParameter("txtIdVeiculo"));
 		 VeiculoBO veiculoBO = new VeiculoBO();
 		 
-		 //Retornando o nome da página JSP  
-         String proximaTela = veiculoBO.alugarVeiculo(idVeiculo);
-         
-         request.setAttribute("veiculos", veiculoBO.getVeiculos());
-         
-         return "/WEB-INF/jsp/" + proximaTela;
+		 
+        if(veiculoBO.excluirVeiculo(idVeiculo)) {
+        	request.setAttribute("veiculos", veiculoBO.getVeiculos());
+        } else {
+        	request.setAttribute("erroAoExcluir", true);
+        }
+        
+        //Retornando o nome da página JSP  
+        return "/WEB-INF/jsp/" + "VeiculosList.jsp";
+		
 	}
 
 }

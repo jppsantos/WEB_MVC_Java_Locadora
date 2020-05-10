@@ -5,20 +5,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.jppsantos.bo.VeiculoBO;
 
-public class AlugaVeiculoLogica implements Logica {
+public class CarregaDadosVeiculoLogica implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//Executando a logica
 		 Integer idVeiculo = Integer.parseInt(request.getParameter("txtIdVeiculo"));
 		 VeiculoBO veiculoBO = new VeiculoBO();
+		  
+		 request.setAttribute("veiculo", veiculoBO.getVeiculoPorId(idVeiculo));
 		 
-		 //Retornando o nome da página JSP  
-         String proximaTela = veiculoBO.alugarVeiculo(idVeiculo);
-         
-         request.setAttribute("veiculos", veiculoBO.getVeiculos());
-         
-         return "/WEB-INF/jsp/" + proximaTela;
+       //Retornando o nome da página JSP  
+       return "/WEB-INF/jsp/" + "AtualizaVeiculo.jsp";
 	}
-
+	
 }

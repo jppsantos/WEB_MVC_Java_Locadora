@@ -6,21 +6,20 @@
 		<li class="nav-item">
 			<form action="ControllerServlet" method="post">
 				<input type="hidden" name = "logica" value = "ListaVeiculosLogica">
-				<input type="submit" value="Listar Veiculos" class="btn btn-outline-dark">
+				<input type="submit" value="Listar Veiculos" class="nav-link active" data-toggle="tab">
 			</form>
 		</li>
 		
 		<li class="nav-item">
 			<form action="ControllerServlet" method="post" >
 				<input type="hidden" name = "logica" value = "ListaEditavelVeiculosLogica">
-				<input type="submit" value="Alugar Veiculo" class="btn btn-outline-dark">
+				<input type="submit" value="Alugar Veiculo" class="nav-link active" data-toggle="tab">
 			</form>		
 		</li>
 		
 		<li class="nav-item">
-			<form action="CadastraVeiculo.jsp" method="post" >
-				<input type="submit" value="Cadastrar" class="btn btn-outline-dark">
-			</form>		
+			<a class="nav-link active" href="CadastraVeiculo.jsp" data-toggle="tab">Cadastrar</a>
 		</li>
+	
 	</ul>		
 </div>
