@@ -41,7 +41,10 @@ public class VeiculoBO {
 	}
 	
 	public boolean excluirVeiculo(Integer id) {
-		return veiculoDAO.excluirVeiculo(id);
+		if(!veiculoDAO.buscarVeiculo(id).getDisponibilidade().contains("Indispo")) {
+			return veiculoDAO.excluirVeiculo(id);
+		}
+		return false;
 	}
 
 	public List<VeiculoBean> getVeiculos(String modelo) {
